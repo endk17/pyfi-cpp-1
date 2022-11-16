@@ -3,7 +3,10 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/local/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/include/python3.10/",
+                "/usr/local/Cellar/llvm/15.0.4/lib/clang/15.0.4/include/openmp_wrappers/",
+                "/usr/local/Cellar/llvm/15.0.4/include/c++/v1/"
             ],
             "defines": [],
             "macFrameworkPath": [
@@ -12,7 +15,10 @@
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "macos-clang-x64"
+            "intelliSenseMode": "macos-clang-x64",
+            "compilerArgs": [
+                "-ferror-limit=100"
+            ]
         }
     ],
     "version": 4
