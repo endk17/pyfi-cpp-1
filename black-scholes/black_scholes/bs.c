@@ -46,3 +46,13 @@ double _bs_call(double S, double K, double r, double t, double sigma) {
     double d2 = d1-(sigma*time_sqrt);
     return S*N(d1) - K*exp(-r*t)*N(d2);
 }
+
+// Module objects for python
+static PyObject *
+bs_call(PyObject *self, PyObject *args)
+{
+    double S, K, r, t, sigma;
+    if (!PyArg_ParseTuple(args, "ddddd", &amp;S, &amp;K, &amp;r, &amp;t, &amp;sigma))
+        return NULL;
+    return Py_BuildValue("d", _bs_call(S, K, r, t, sigma));
+}
