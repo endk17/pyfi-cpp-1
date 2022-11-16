@@ -56,3 +56,24 @@ bs_call(PyObject *self, PyObject *args)
         return NULL;
     return Py_BuildValue("d", _bs_call(S, K, r, t, sigma));
 }
+
+PyDoc_STRVAR(bs_doc, "Python3 extending.\n");
+
+static PyMethodDef methods[] = {
+    {"bs_call", bs_call, METH_VARARGS, ".\n"},
+    {NULL, NULL, 0, NULL}
+};
+
+static struct PyModuleDef bsmodule = {
+    PyModuleDef_HEAD_INIT,
+    "bs",   /* name of module */
+    bs_doc, /* module documentation, may be NULL */
+    -1,     /* size of per-interpreter state of the module,
+               or -1 if the module keeps state in global variables. */
+    methods
+};
+
+PyInit_bs(void)
+{
+    return PyModule_Create(&amp;bsmodule);
+}
